@@ -6,11 +6,11 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from supabase import create_client
 from datetime import datetime
 
-BOT_TOKEN   = "8965770810:AAFNM9WQyOeMNkr24b7TmIkL0Gln-xdruDw"
+BOT_TOKEN   = "8965770810:AAFNM9WQy0eMNkr24b7TmIkL0Gln-xdruDw"
 MINIAPP_URL = "https://tegridy.netlify.app/"
 SB_URL      = "https://qcmanyxzgnxypensibqt.supabase.co"
 SB_KEY      = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFjbWFueXh6Z254eXBlbnNpYnF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NTgzNjcsImV4cCI6MjEwMzEzNDM2N30.YnVyBmWw60frN2YdGreElMs3hQAW-E_ThfaqVCxcFM4"
-LOGO_URL    = "https://avecamour.b-cdn.net/file_038_image.png"
+LOGO_URL    = "https://stashmemedia.b-cdn.net/1788183519196_qfq7kfz0elb.png"
 ADMIN_IDS   = []
 
 WELCOME_TEXT = """🌿 *Bienvenue sur TEGRIDY*
