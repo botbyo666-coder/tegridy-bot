@@ -6,18 +6,16 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from supabase import create_client
 from datetime import datetime
 
-BOT_TOKEN   = "8965770810:AAFNM9WQyOeMNkr24b7TmIkL0Gln-xdruDw"
+BOT_TOKEN   = "8965770810:AAFNM9WQyOeMNkr24b7TmIkL0Gln-xdruDw"  # ⚠️ À remplacer
 MINIAPP_URL = "https://tegridy.netlify.app/"
 SB_URL      = "https://qcmanyxzgnxypensibqt.supabase.co"
 SB_KEY      = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFjbWFueXh6Z254eXBlbnNpYnF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NTgzNjcsImV4cCI6MjEwMzEzNDM2N30.YnVyBmWw60frN2YdGreElMs3hQAW-E_ThfaqVCxcFM4"
 LOGO_URL    = "https://stashmemedia.b-cdn.net/1788183519196_qfq7kfz0elb.png"
 ADMIN_IDS   = []
 
-WELCOME_TEXT = """🌿 *Bienvenue sur TEGRIDY*
+WELCOME_TEXT = """👨🏽‍🌾 *Bienvenue chez TEGRIDY !*
 
-Premium · Discret · Fiable
-
-Découvrez notre sélection de produits premium.
+Découvrez notre sélection de produits d'exception, sélectionnés pour vous satisfaire.
 
 Appuyez sur le bouton ci-dessous 👇"""
 
@@ -48,9 +46,15 @@ def run_health():
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     log_visit(user)
-    kb = [[InlineKeyboardButton("🌿 Ouvrir la boutique", web_app=WebAppInfo(url=MINIAPP_URL))]]
+
+    # Bouton avec expand=True pour ouvrir en plein écran
+    kb = [[InlineKeyboardButton(
+        "🌿 Ouvrir la boutique",
+        web_app=WebAppInfo(url=MINIAPP_URL)
+    )]]
+
     try:
-        await update.message.reply_photo(
+        msg = await update.message.reply_photo(
             photo=LOGO_URL,
             caption=WELCOME_TEXT,
             parse_mode="Markdown",
