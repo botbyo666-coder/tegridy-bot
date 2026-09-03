@@ -15,9 +15,9 @@ ADMIN_IDS   = []
 
 WELCOME_TEXT = """👨🏽‍🌾 *Bienvenue chez TEGRIDY !*
 
-Découvrez notre sélection de produits d'exception, sélectionnés pour vous satisfaire.
+Découvrez une larges sélection de produits d'exception, sélectionnés pour vous satisfaire.⭐
 
-Appuyez sur le bouton ci-dessous 👇"""
+"""
 
 supabase = create_client(SB_URL, SB_KEY)
 
@@ -49,7 +49,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Bouton avec expand=True pour ouvrir en plein écran
     kb = [[InlineKeyboardButton(
-        "🌿 Ouvrir la boutique",
+        "Ouvrir la boutique",
         web_app=WebAppInfo(url=MINIAPP_URL)
     )]]
 
