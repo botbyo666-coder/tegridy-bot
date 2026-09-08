@@ -11,7 +11,7 @@ MINIAPP_URL = "https://tegridy.netlify.app/"
 SB_URL      = "https://qcmanyxzgnxypensibqt.supabase.co"
 SB_KEY      = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFjbWFueXh6Z254eXBlbnNpYnF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NTgzNjcsImV4cCI6MjEwMzEzNDM2N30.YnVyBmWw60frN2YdGreElMs3hQAW-E_ThfaqVCxcFM4"
 LOGO_URL    = "https://stashmemedia.b-cdn.net/1788183519196_qfq7kfz0elb.png"
-ADMIN_IDS   = []
+ADMIN_IDS   = [8480676670]
 
 WELCOME_TEXT = """👨🏽‍🌾 *Bienvenue chez TEGRIDY !*
 
