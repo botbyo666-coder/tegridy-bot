@@ -90,12 +90,29 @@ async def stats_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if ADMIN_IDS and update.effective_user.id not in ADMIN_IDS:
         await update.message.reply_text("⛔ Accès refusé.")
         return
-    visits = supabase.table("bot_visits").select("telegram_id").execute()
+    
+    visits = supabase.table("bot_visits").select("telegram_id, username, first_name, visited_at").execute()
     ids = list(set([v["telegram_id"] for v in visits.data]))
-    await update.message.reply_text(
-        f"📊 *Stats TEGRIDY*\n\n👥 Uniques : {len(ids)}\n📬 Total visites : {len(visits.data)}",
-        parse_mode="Markdown"
-    )
+    
+    # Liste des users
+    user_list = ""
+    seen = set()
+    for v in visits.data:
+        if v["telegram_id"] not in seen:
+            seen.add(v["telegram_id"])
+            username = f"@{v['username']}" if v['username'] else "pas de @"
+            name = v['first_name'] or "?"
+            user_list += f"👤 {name} | {username} | `{v['telegram_id']}`\n"
+    
+    msg = f"📊 *Stats TEGRIDY*\n\n👥 Uniques : {len(ids)}\n📬 Total visites : {len(visits.data)}\n\n*Liste des utilisateurs :*\n{user_list}"
+    
+    # Telegram limite à 4096 caractères par message
+    if len(msg) > 4096:
+        chunks = [msg[i:i+4096] for i in range(0, len(msg), 4096)]
+        for chunk in chunks:
+            await update.message.reply_text(chunk, parse_mode="Markdown")
+    else:
+        await update.message.reply_text(msg, parse_mode="Markdown")
 
 def main():
     logging.basicConfig(level=logging.INFO)
